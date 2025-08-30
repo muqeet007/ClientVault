@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Lock, Mail, User, UserCheck} from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail } from 'lucide-react';
 
-
-const Login= () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -13,21 +12,19 @@ const Login= () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Add your register logic here
     setTimeout(() => {
       setIsLoading(false);
-      console.log('Login attempt:', {email, password });
+      console.log('Login attempt:', { email, password });
     }, 1500);
   };
 
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-60 h-60 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gray-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-60 h-60 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
       </div>
 
       {/* Floating Particles */}
@@ -40,47 +37,47 @@ const Login= () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 3}s`
+              animationDuration: `${2 + Math.random() * 3}s`,
             }}
           ></div>
         ))}
       </div>
 
       <div className="w-full max-w-md relative z-10">
-        <div className="bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+        <div className="bg-gray-900 backdrop-blur-2xl rounded-3xl border border-gray-700 shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-blue-600/80"></div>
+          <div className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-8 text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/80 to-orange-500/80"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <Lock className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-3xl font-bold text-white">Client Vault</h1>
-              <p className="text-purple-100 text-sm mt-2 font-medium">
+              <p className="text-orange-100 text-sm mt-2 font-medium">
                 Secure Document Sharing Solution
               </p>
             </div>
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
           </div>
 
           {/* Form */}
           <div className="p-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-white">Login</h2>
-              <p className="text-purple-200 text-sm mt-2">Join our secure platform today</p>
+              <p className="text-gray-400 text-sm mt-2">Join our secure platform today</p>
             </div>
 
             <div className="space-y-6">
-              
               {/* Email */}
               <div className="relative">
-                <label htmlFor="email" className="block text-sm font-semibold text-purple-200 mb-3">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-3">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'email' ? 'text-purple-400' : 'text-gray-400'}`} />
+                  <Mail
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
+                      focusedField === 'email' ? 'text-orange-400' : 'text-gray-500'
+                    }`}
+                  />
                   <input
                     id="email"
                     type="email"
@@ -89,7 +86,7 @@ const Login= () => {
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField('')}
                     required
-                    className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-white placeholder-purple-200/60 hover:bg-white/20"
+                    className="w-full pl-12 pr-4 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-white placeholder-gray-400 hover:bg-gray-700"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -97,11 +94,15 @@ const Login= () => {
 
               {/* Password */}
               <div className="relative">
-                <label htmlFor="password" className="block text-sm font-semibold text-purple-200 mb-3">
+                <label htmlFor="password" className="block text-sm font-semibold text-gray-300 mb-3">
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'password' ? 'text-purple-400' : 'text-gray-400'}`} />
+                  <Lock
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
+                      focusedField === 'password' ? 'text-orange-400' : 'text-gray-500'
+                    }`}
+                  />
                   <input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
@@ -110,13 +111,13 @@ const Login= () => {
                     onFocus={() => setFocusedField('password')}
                     onBlur={() => setFocusedField('')}
                     required
-                    className="w-full pl-12 pr-12 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-white placeholder-purple-200/60 hover:bg-white/20"
+                    className="w-full pl-12 pr-12 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-white placeholder-gray-400 hover:bg-gray-700"
                     placeholder="Enter your password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-purple-400 transition-colors"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-orange-400 transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -128,14 +129,14 @@ const Login= () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-purple-400 disabled:to-blue-400 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl relative overflow-hidden group"
+                  className="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 disabled:from-orange-400 disabled:to-orange-400 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <span className="relative z-10">
                     {isLoading ? (
                       <div className="flex items-center justify-center space-x-2">
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        <span>Creating Account...</span>
+                        <span>Signing In...</span>
                       </div>
                     ) : (
                       'Login'
@@ -149,16 +150,16 @@ const Login= () => {
             <div className="mt-8 text-center">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-white/20"></div>
+                  <div className="w-full border-t border-gray-700"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-transparent px-4 text-purple-200 font-medium">Don't have an account ?</span>
+                  <span className="bg-transparent px-4 text-gray-400 font-medium">Don't have an account?</span>
                 </div>
               </div>
               <div className="mt-4">
-                <a 
-                  href="/login" 
-                  className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white font-medium rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:border-purple-400"
+                <a
+                  href="/login"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-white font-medium rounded-xl hover:bg-gray-700 transition-all duration-300 hover:scale-105 hover:border-orange-400"
                 >
                   Register Here
                 </a>
@@ -168,8 +169,8 @@ const Login= () => {
 
           {/* Security Badge */}
           <div className="px-8 pb-6">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
-              <div className="flex items-center justify-center space-x-2 text-purple-200">
+            <div className="bg-gray-800 border border-gray-700 rounded-xl p-4 text-center">
+              <div className="flex items-center justify-center space-x-2 text-gray-400">
                 <Lock className="w-4 h-4" />
                 <span className="text-sm font-medium">256-bit SSL Encrypted</span>
               </div>
@@ -178,33 +179,9 @@ const Login= () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute -top-6 -left-6 w-12 h-12 bg-purple-500/30 rounded-full blur-xl"></div>
-        <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-blue-500/30 rounded-full blur-xl"></div>
+        <div className="absolute -top-6 -left-6 w-12 h-12 bg-orange-500/30 rounded-full blur-xl"></div>
+        <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-gray-600/30 rounded-full blur-xl"></div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        
-        input::placeholder, select option {
-          font-weight: 500;
-        }
-        
-        select option {
-          background-color: #1e293b;
-          color: white;
-        }
-      `}</style>
     </div>
   );
 };

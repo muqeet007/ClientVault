@@ -3,7 +3,8 @@ import Register from "./pages/Register"
 function App() {
 return (
   <>
-  <Login/>
+  {/* <Login/> */}
+  <Register/>
   </>
 )
 }
