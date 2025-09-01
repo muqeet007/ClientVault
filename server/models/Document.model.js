@@ -19,10 +19,10 @@ const DocumentSchema=new Schema({
     },
 
     sharedWith:
-    {
+    [{
         type:Schema.Types.ObjectId,
         ref:'User',
-    },
+    }],
 
     status:
     {

@@ -1,4 +1,4 @@
-import { User } from "../models/User.model"
+import { User } from "../models/User.model.js"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
@@ -110,8 +110,8 @@ export const Login=async(req,res)=>
                     useremail:user.email,
                     userrole:user.role
                     },
-                    ACCESS_TOKEN_SECRET,
-                    {expiresIn:'30m'}
+                    process.env.ACCESS_TOKEN_SECRET,
+                    {expiresIn:'15m'}
                     
                 )
 
@@ -122,23 +122,23 @@ export const Login=async(req,res)=>
                         email:user.email,
                         role:user.role
                     },
-                    REFRESH_TOKEN_SECRET,
+                    process.env.REFRESH_TOKEN_SECRET,
                     {expiresIn:'7d'}
                 )
 
                 // Saving refresh token in Database.
-                user.refreshToken=refreshToken;
+                user.refreshToken=refreshtoken;
                 await user.save();
 
                 // Send tokens as cookies
-                res.cookie("accessToken", accessToken, {
+                res.cookie("accessToken", accesstoken, {
                 httpOnly: true,
                 secure: false, // true in production
                 sameSite: "Strict",
                 maxAge: 15 * 60 * 1000
                 });
 
-                res.cookie("refreshToken", refreshToken, {
+                res.cookie("refreshToken", refreshtoken, {
                 httpOnly: true,
                 secure: false,
                 sameSite: "Strict",
